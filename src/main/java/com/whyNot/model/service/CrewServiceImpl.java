@@ -1,0 +1,37 @@
+package com.whyNot.model.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.whyNot.model.dao.CrewDao;
+import com.whyNot.model.dto.Crew;
+import com.whyNot.model.dto.SearchCondition;
+
+@Service
+public class CrewServiceImpl implements CrewService{
+
+	@Autowired
+	private CrewDao cDao;
+
+	@Override
+	public int registCrew(Crew crew) {
+		return cDao.registCrew(crew);
+	}
+
+	@Override
+	public int updateCrew(Crew crew) {
+		return cDao.updateCrew(crew);
+	}
+
+	@Override
+	public int deleteCrew(Crew crew) {
+		return cDao.deleteCrew(crew);
+	}
+
+	@Override
+	public List<Crew> searchByCondition(SearchCondition condition) {
+		return cDao.searchByCondition(condition);
+	}
+}
