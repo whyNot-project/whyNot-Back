@@ -1,6 +1,7 @@
 package com.whyNot.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,12 @@ public class UserServiceImpl implements UserService{
 	private UserDao uDao;
 	
 	@Override
-	public int registUser(User user) {
+	public Map<String, Object> login(User user) {
+		return uDao.login(user);
+	}
+	
+	@Override
+	public Integer registUser(User user) {
 		return uDao.registUser(user);
 	}
 
