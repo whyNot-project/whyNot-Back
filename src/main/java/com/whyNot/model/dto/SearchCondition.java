@@ -2,46 +2,58 @@ package com.whyNot.model.dto;
 
 public class SearchCondition {
 	
-	private String key = "none";
-	private String word;
-	private String orderBy = "none";
-	private String orderByDir;
-
+	private int isInside;
+	private int isSingle;
+	private int isCardio;
+	private int useEquip;
+	
 	public SearchCondition() {
-
 	}
 
-	public String getKey() {
-		return key;
+	public SearchCondition(int isInside, int isSingle, int isCardio, int useEquip) {
+		super();
+		this.isInside = isInside;
+		this.isSingle = isSingle;
+		this.isCardio = isCardio;
+		this.useEquip = useEquip;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public int getIsInside() {
+		return isInside;
 	}
 
-	public String getWord() {
-		return word;
+	public void setIsInside(int isInside) {
+		this.isInside = isInside;
 	}
 
-	public void setWord(String word) {
-		this.word = word;
+	public int getIsSingle() {
+		return isSingle;
 	}
 
-	public String getOrderBy() {
-		return orderBy;
+	public void setIsSingle(int isSingle) {
+		this.isSingle = isSingle;
 	}
 
-	public void setOrderBy(String orderBy) {
-		this.orderBy = orderBy;
+	public int getIsCardio() {
+		return isCardio;
 	}
 
-	public String getOrderByDir() {
-		return orderByDir;
+	public void setIsCardio(int isCardio) {
+		this.isCardio = isCardio;
 	}
 
-	public void setOrderByDir(String orderByDir) {
-		this.orderByDir = orderByDir;
+	public int getUseEquip() {
+		return useEquip;
 	}
 
+	public void setUseEquip(int useEquip) {
+		this.useEquip = useEquip;
+	}
 
+	@Override
+	public String toString() {
+		return "SearchCondition [isInside=" + isInside + ", isSingle=" + isSingle + ", isCardio=" + isCardio
+				+ ", useEquip=" + useEquip + "]";
+	}
+	
 }
