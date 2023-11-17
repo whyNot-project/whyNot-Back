@@ -20,11 +20,8 @@
 	<select id="searchByCondition" parameterType="SearchCondition">
 		SELECT crew.crewId, crew.crewName, crew.content, crew.schedule, crew.tag, crew.location,
 			   crew.regDate, crew.memberNum, crew.leader
-		FROM activity INNER JOIN crew
-		WHERE isInside = #{isInside}
-		AND isSingle = #{isSingle}
-		AND isCardio = #{isCardio}
-		AND useEquip = #{useEquip}
+		FROM activity LEFT OUTER JOIN crew
+		ON activity.activityId = crew.tag
+		WHERE isInside = #{isInside} AND isSingle = #{isSingle} AND isCardio = #{isCardio} AND useEquip = #{useEquip}
 	</select>
-	
 </mapper>
