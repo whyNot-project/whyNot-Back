@@ -18,7 +18,7 @@ import com.whyNot.model.dto.SearchCondition;
 import com.whyNot.model.service.CrewService;
 
 @RestController
-@RequestMapping("/crewapi")
+@RequestMapping("/api")
 @CrossOrigin("*")
 public class CrewController {
 	

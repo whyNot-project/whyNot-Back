@@ -16,7 +16,7 @@ import com.whyNot.model.dto.User;
 import com.whyNot.model.service.UserService;
 
 @RestController
-@RequestMapping("/userapi")
+@RequestMapping("/api")
 @CrossOrigin("*") //이 뒤에 origins, methods 추가해야할까?
 public class UserController {
 	
