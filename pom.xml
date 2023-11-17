@@ -75,6 +75,13 @@
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
 		
+		<!-- JWT 사용하기 위해서 -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

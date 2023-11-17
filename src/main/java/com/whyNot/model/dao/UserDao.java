@@ -1,16 +1,17 @@
 package com.whyNot.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.whyNot.model.dto.User;
 
 public interface UserDao {
 	
-	//사용자 등록
-	int registUser(User user);
+	Map<String, Object> login(User user);
 	
-	//사용자 정보 (JWT 사용해서 어떻게 가져올지 고민해봐야함
-	//일단 전에 id로 검색하던 대로 작성해둘게요
+	//사용자 등록
+	Integer registUser(User user);
+	
 	List<User> searchById(String id);
 	
 	
