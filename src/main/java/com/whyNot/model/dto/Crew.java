@@ -11,13 +11,12 @@ public class Crew {
 	private String regDate;
 	private int memberNum;
 	private String leader;
-	private String userId;
 	
 	public Crew() {
 	}
 
 	public Crew(int crewId, String crewName, String content, String schedule, int tag, String location, String regDate,
-			int memberNum, String leader, String userId) {
+			int memberNum, String leader) {
 		super();
 		this.crewId = crewId;
 		this.crewName = crewName;
@@ -28,7 +27,6 @@ public class Crew {
 		this.regDate = regDate;
 		this.memberNum = memberNum;
 		this.leader = leader;
-		this.userId = userId;
 	}
 
 	public int getCrewId() {
@@ -103,19 +101,11 @@ public class Crew {
 		this.leader = leader;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 	@Override
 	public String toString() {
 		return "Crew [crewId=" + crewId + ", crewName=" + crewName + ", content=" + content + ", schedule=" + schedule
 				+ ", tag=" + tag + ", location=" + location + ", regDate=" + regDate + ", memberNum=" + memberNum
-				+ ", leader=" + leader + ", userId=" + userId + "]";
+				+ ", leader=" + leader + "]";
 	}
 	
 

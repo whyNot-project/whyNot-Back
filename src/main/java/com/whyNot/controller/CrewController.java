@@ -17,9 +17,9 @@ import com.whyNot.model.dto.Crew;
 import com.whyNot.model.dto.SearchCondition;
 import com.whyNot.model.service.CrewService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("*")
 public class CrewController {
 	
 	@Autowired
@@ -66,6 +66,37 @@ public class CrewController {
 		
 		//성공
 		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
+	//전체 목록
+	@GetMapping("crew")
+	public ResponseEntity<?> selectCrewAll(){
+		
+		List<Crew> list = cService.selectCrewAll();
+		
+		//실패
+		if(list == null || list.size() == 0)
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		
+		//성공
+		return new ResponseEntity<List<Crew>>(list, HttpStatus.OK);
+		
+	}
+	
+	//크루 상세
+	@GetMapping("/crew/{crewid}")
+	public ResponseEntity<?> detailCrew(int crewId){
+		
+		Crew crew = cService.detailCrew(crewId);
+		
+		//해당하는 크루 없음
+		if(crew == null)
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		
+		//크루 가져옴
+		return new ResponseEntity<Crew>(crew, HttpStatus.OK);
+		
+		
 	}
 	
 	//검색

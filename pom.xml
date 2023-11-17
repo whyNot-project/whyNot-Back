@@ -8,11 +8,11 @@
 		<version>2.7.17</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.whyNot</groupId>
-	<artifactId>whyNot</artifactId>
+	<groupId>com.ssafy</groupId>
+	<artifactId>Spring_Day13_SpringBootBoard_API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>whyNot</name>
-	<description>whyNot Project</description>
+	<name>Spring_Day13_SpringBootBoard_API</name>
+	<description>Simple Board REST API</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -49,32 +49,12 @@
 			<version>2.3.1</version>
 			<scope>test</scope>
 		</dependency>
-				<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<!-- Swagger 사용 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
+			<artifactId>springfox-boot-starter</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		
-		<!-- 커넥션을 관리하기 위해서 -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-dbcp2</artifactId>
-		</dependency>
-
-		<!-- JSON 형변환을 위하여 -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -82,11 +62,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
-					</image>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
