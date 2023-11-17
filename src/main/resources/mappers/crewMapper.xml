@@ -11,9 +11,20 @@
 	
 	<!-- 크루 상세 -->
 	<select id="detailCrew" parameterType="int" resultType="Crew">
-		
 		SELECT *
 		FROM crew
 		WHERE crewId = #{crewId}
 	</select>
+	
+	<!-- 크루 검색 -->
+	<select id="searchByCondition" parameterType="SearchCondition">
+		SELECT crew.crewId, crew.crewName, crew.content, crew.schedule, crew.tag, crew.location,
+			   crew.regDate, crew.memberNum, crew.leader
+		FROM activity INNER JOIN crew
+		WHERE isInside = #{isInside}
+		AND isSingle = #{isSingle}
+		AND isCardio = #{isCardio}
+		AND useEquip = #{useEquip}
+	</select>
+	
 </mapper>
