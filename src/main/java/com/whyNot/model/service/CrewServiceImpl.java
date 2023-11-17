@@ -3,7 +3,10 @@ package com.whyNot.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.whyNot.model.dao.CrewDao;
 import com.whyNot.model.dto.Crew;
@@ -28,6 +31,16 @@ public class CrewServiceImpl implements CrewService{
 	@Override
 	public int deleteCrew(Crew crew) {
 		return cDao.deleteCrew(crew);
+	}
+	
+	@Override
+	public List<Crew> selectCrewAll(){
+		return cDao.selectCrewAll();
+	}
+	
+	@Override
+	public Crew detailCrew(int crewId) {
+		return cDao.detailCrew(crewId);
 	}
 
 	@Override
