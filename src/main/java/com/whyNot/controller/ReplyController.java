@@ -16,7 +16,7 @@ import com.whyNot.model.dto.Reply;
 import com.whyNot.model.service.ReplyService;
 
 @RestController
-@RequestMapping("/replyapi")
+@RequestMapping("/api")
 @CrossOrigin("*")
 public class ReplyController {
 	
