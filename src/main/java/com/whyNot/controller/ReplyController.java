@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.whyNot.model.dto.Reply;
 import com.whyNot.model.service.ReplyService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("*")
 public class ReplyController {
 	
 	@Autowired
@@ -40,7 +40,7 @@ public class ReplyController {
 	
 	//crew에 따라 댓글 목록 불러오기
 	@GetMapping("reply/{id}") //매핑 맞는지?
-	public ResponseEntity<?> searchByCrewId(@PathVariable String crewId){
+	public ResponseEntity<?> searchByCrewId(int crewId){
 		
 		List<Reply> list = rService.searchByCrewId(crewId);
 		

@@ -20,7 +20,7 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
-	public List<Reply> searchByCrewId(String crewId) {
+	public List<Reply> searchByCrewId(int crewId) {
 		return rDao.searchByCrewId(crewId);
 	}
 	
