@@ -10,6 +10,6 @@ public interface ReplyService {
 	int registReply(Reply reply);
 	
 	//crew에 따라 댓글 목록 불러오기
-	List<Reply> searchByCrewId(String crewId);
+	List<Reply> searchByCrewId(int crewId);
 
 }

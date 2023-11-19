@@ -104,7 +104,9 @@ CREATE TABLE IF NOT EXISTS `reply` (
 )ENGINE=InnoDB DEFAULT CHARACTER SET = utf8mb4;
 
 INSERT INTO reply(crewId, replyWriter, replyContent) 
-VALUES (1, "ssafy", "요가를 처음 하는데 괜찮을까요?"), (1, "ssafy3", "고럼요 초보자를 위해서 속도 천천히 맞춰드립니다!");
+VALUES (1, "ssafy", "요가를 처음 하는데 괜찮을까요?"), 
+(1, "ssafy3", "고럼요 초보자를 위해서 속도 천천히 맞춰드립니다!"),
+(2, "ssafy", "한달에 몇 번 모이시나요?");
 
 CREATE TABLE IF NOT EXISTS `article`(
 	`articleId` INT NOT NULL PRIMARY KEY,
