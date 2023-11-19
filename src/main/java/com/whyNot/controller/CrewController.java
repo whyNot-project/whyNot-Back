@@ -5,13 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.whyNot.model.dto.Crew;
 import com.whyNot.model.dto.SearchCondition;
@@ -56,22 +50,17 @@ public class CrewController {
 	
 	//삭제
 	@DeleteMapping("/crew/{crewId}")
-	public ResponseEntity<?> deleteCrew(int crewId){
+	public ResponseEntity<?> deleteCrew(@PathVariable int crewId){
 		//참조하고 있는 user_crew 테이블 삭제
-		int check1 = cService.deleteUserCrew(crewId);
-
-		if(check1 == 0) {
+		cService.deleteUserCrew(crewId);
+		int check2 = cService.deleteCrew(crewId);
+		//실패
+		if(check2 == 0)
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
-		} else {
-			int check2 = cService.deleteCrew(crewId);
-			//실패
-			if(check2 == 0)
-				return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
-			//성공
-			return new ResponseEntity<Void>(HttpStatus.OK);
-		}
-
+		//성공
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+
 	
 	//전체 목록
 	@GetMapping("crew")
