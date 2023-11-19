@@ -55,17 +55,22 @@ public class CrewController {
 	}
 	
 	//삭제
-	@DeleteMapping("/crew")
-	public ResponseEntity<?> deleteCrew(Crew crew){
-		
-		int check = cService.deleteCrew(crew);
-		
-		//실패
-		if(check == 0)
+	@DeleteMapping("/crew/{crewId}")
+	public ResponseEntity<?> deleteCrew(int crewId){
+		//참조하고 있는 user_crew 테이블 삭제
+		int check1 = cService.deleteUserCrew(crewId);
+
+		if(check1 == 0) {
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
-		
-		//성공
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		} else {
+			int check2 = cService.deleteCrew(crewId);
+			//실패
+			if(check2 == 0)
+				return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+			//성공
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}
+
 	}
 	
 	//전체 목록

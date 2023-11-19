@@ -24,4 +24,28 @@
 		ON activity.activityId = crew.tag
 		WHERE isInside = #{isInside} AND isSingle = #{isSingle} AND isCardio = #{isCardio} AND useEquip = #{useEquip}
 	</select>
+
+	<!-- 크루 등록 -->
+	<insert id="registCrew" parameterType="Crew">
+		INSERT INTO crew(crewName, content, schedule, tag, location, memberNum, leader)
+		values (#{crewName}, #{content}, #{schedule}, #{tag}, #{location},#{memberNum}, #{leader})
+	</insert>
+
+	<!-- 크루 수정 -->
+	<update id="updateCrew" parameterType="Crew">
+		UPDATE crew
+		SET crewName = #{crewName}, content = #{content}, schedule = #{schedule}, tag = #{tag}, location = #{location}, memberNum = #{memberNum}, leader = #{leader}
+		WHERE crewId = #{crewId}
+	</update>
+
+	<!-- 크루 삭제 -->
+	<delete id="deleteUserCrew" parameterType="int">
+		DELETE FROM user_crew
+		WHERE crewId = #{crewId}
+	</delete>
+
+	<delete id="deleteCrew" parameterType="int">
+		DELETE FROM crew
+		WHERE crewId = #{crewId}
+	</delete>
 </mapper>
