@@ -14,7 +14,8 @@ public interface CrewService {
 	int updateCrew(Crew crew);
 	
 	//크루 삭제
-	int deleteCrew(Crew crew);
+	int deleteUserCrew(int crewId);
+	int deleteCrew(int crewId);
 	
 	//크루 전체목록
 	List<Crew> selectCrewAll();

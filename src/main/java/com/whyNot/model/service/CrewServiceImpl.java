@@ -29,8 +29,12 @@ public class CrewServiceImpl implements CrewService{
 	}
 
 	@Override
-	public int deleteCrew(Crew crew) {
-		return cDao.deleteCrew(crew);
+	public int deleteUserCrew(int crewId) {
+		return cDao.deleteUserCrew(crewId);
+	}
+	@Override
+	public int deleteCrew(int crewId) {
+		return cDao.deleteCrew(crewId);
 	}
 	
 	@Override
