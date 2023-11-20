@@ -47,6 +47,7 @@ public class UserController {
 				list.get(0).getPassword().equals(user.getPassword())) {
 			result.put("access-token",  jwtUtil.createToken("id",  user.getUserId()));
 			result.put("message", "로그인 성공");
+			result.put("nickname", list.get(0).getNickname());
 			status = HttpStatus.OK;
 		} else {
 			result.put("message", "로그인 실패");
@@ -57,7 +58,7 @@ public class UserController {
 	
 	//등록
 	@PostMapping("/user")
-	public ResponseEntity<?> registUser(User user){
+	public ResponseEntity<?> registUser(@RequestBody User user){
 		Integer check = uService.registUser(user);
 
 		//실패
