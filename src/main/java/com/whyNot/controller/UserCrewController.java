@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,10 +29,21 @@ public class UserCrewController {
 		
 		List<UserCrew> list = ucService.selectMyCrew(userId);
 		
-		if(list == null || list.size() == 0)
+		if(list == null || list.size() == 0) 
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-		
+
 		return new ResponseEntity<List<UserCrew>>(list, HttpStatus.OK);
 		
+	}
+	
+	@PostMapping("/userCrew")
+	public ResponseEntity<?> joinCrew(@RequestBody UserCrew uCrew){
+		
+		int check = ucService.joinCrew(uCrew);
+		
+		if(check == 0)
+			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+		
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 }

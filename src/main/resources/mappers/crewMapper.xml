@@ -48,4 +48,18 @@
 		DELETE FROM crew
 		WHERE crewId = #{crewId}
 	</delete>
+	
+	<!-- 크루 이름으로 검색 -->
+	
+	<select id="searchByName" parameterType="String">
+		SELECT crew.crewId, crew.crewName, crew.content, crew.schedule, crew.tag, crew.location,
+			   crew.regDate, crew.memberNum, crew.leader
+		FROM crew
+		WHERE crewName = #{crewName}
+	</select>
+	
+	
+	
+	
+	
 </mapper>

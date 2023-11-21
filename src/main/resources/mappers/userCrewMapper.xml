@@ -7,7 +7,14 @@
 	
 		SELECT * FROM user_crew LEFT OUTER JOIN crew
 		ON user_crew.crewId = crew.crewId
-		WHERE userId = #{userId}
+		WHERE user_crew.userId = #{userId}
 		
 	</select>
+	
+	<!-- 크루 가입 -->
+	<insert id="joinCrew" parameterType="UserCrew">
+		INSERT INTO user_crew
+		VALUES (#{userId}, #{crewId} )
+	</insert>
+	
 </mapper>
