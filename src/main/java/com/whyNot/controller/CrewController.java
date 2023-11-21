@@ -21,7 +21,7 @@ public class CrewController {
 	
 	//등록
 	@PostMapping("/crew")
-	public ResponseEntity<?> registCrew(Crew crew){
+	public ResponseEntity<?> registCrew(@RequestBody Crew crew){
 		
 		int check = cService.registCrew(crew);
 		

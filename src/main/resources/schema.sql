@@ -38,16 +38,17 @@ CREATE TABLE IF NOT EXISTS `user` (
 	`phoneNumber` INT(11) NOT NULL,
 	`gender` TINYINT NOT NULL,
 	`location` VARCHAR(50) NOT NULL,  
-	`profileImg` TEXT NOT NULL,
+	`profileImgName` TEXT,
+	`profileImgPath` TEXT,
     `type` INT NOT NULL,
     PRIMARY KEY(userId)
 );
 
-INSERT INTO user(userId, password, nickname, phoneNumber, gender, location, profileImg, type) 
-VALUES ("ssafy", "1234", "김싸피", "01012341234", 0, "대전시 유성구 봉명동", "https://avatars.githubusercontent.com/u/99077953?v=4", 5),
-("ssafy2", "1234", "박싸피", "01043214321", 0, "서울특별시 광진구 광장동", "https://avatars.githubusercontent.com/u/139411481?v=4", 2),
-("ssafy3", "1234", "남궁싸피", "01022223333", 0, "대전시 유성구 궁동", "https://avatars.githubusercontent.com/u/139411346?v=4", 3),
-("ssafy4", "1234", "독고싸피", "01077775555", 0, "대전시 유성구 봉명동", "https://avatars.githubusercontent.com/u/128347576?v=4", 12);
+INSERT INTO user(userId, password, nickname, phoneNumber, gender, location, type) 
+VALUES ("ssafy", "1234", "김싸피", "01012341234", 0, "대전시 유성구 봉명동", 5),
+("ssafy2", "1234", "박싸피", "01043214321", 0, "서울특별시 광진구 광장동", 2),
+("ssafy3", "1234", "남궁싸피", "01022223333", 0, "대전시 유성구 궁동", 3),
+("ssafy4", "1234", "독고싸피", "01077775555", 0, "대전시 유성구 봉명동", 12);
 
 CREATE TABLE IF NOT EXISTS `crew` (
     `crewId` INT AUTO_INCREMENT,

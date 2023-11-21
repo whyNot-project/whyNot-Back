@@ -11,8 +11,7 @@
     </select>
     
     <insert id="registUser" parameterType="User">
-    INSERT INTO user (userId, password, nickname, phoneNumber, gender, location, profileImg, type)
-    values (#{userId}, #{password}, #{nickname}, #{phoneNumber}, #{gender}, #{location}, #{profileImg}, #{type});    
+    INSERT INTO user (userId, password, nickname, phoneNumber, gender, location, profileImgName, profileImgPath, type)
+    values (#{userId}, #{password}, #{nickname}, #{phoneNumber}, #{gender}, #{location}, #{profileImgName}, #{profileImgPath}, #{type});    
     </insert>
-
 </mapper>
