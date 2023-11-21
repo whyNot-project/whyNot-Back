@@ -21,7 +21,7 @@ public class CrewController {
 	
 	//등록
 	@PostMapping("/crew")
-	public ResponseEntity<?> registCrew(Crew crew){
+	public ResponseEntity<?> registCrew(@RequestBody Crew crew){
 		
 		int check = cService.registCrew(crew);
 		
@@ -78,8 +78,8 @@ public class CrewController {
 	}
 	
 	//크루 상세
-	@GetMapping("/crew/{crewid}")
-	public ResponseEntity<?> detailCrew(int crewId){
+	@GetMapping("/crew/{crewId}")
+	public ResponseEntity<?> detailCrew(@PathVariable int crewId){
 		
 		Crew crew = cService.detailCrew(crewId);
 		
