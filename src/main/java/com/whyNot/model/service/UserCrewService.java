@@ -8,5 +8,8 @@ public interface UserCrewService {
 	
 	//내크루 가져오기
 	List<UserCrew> selectMyCrew(String userId);
+	
+	//크루 가입하기
+	int joinCrew(UserCrew uCrew);
 
 }
