@@ -28,4 +28,5 @@ public interface CrewService {
 	
 	//크루 이름으로 검색
 	List<Crew> searchByName(String name);
+
 }
