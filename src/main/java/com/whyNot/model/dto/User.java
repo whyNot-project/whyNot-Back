@@ -8,14 +8,15 @@ public class User {
 	private int phoneNumber;
 	private boolean gender;
 	private String location;
-	private String profileImg;
+	private String profileImgName;
+	private String profileImgPath;
 	private int type;
 	
 	public User() {
 	}
 
 	public User(String userId, String password, String nickname, int phoneNumber, boolean gender, String location,
-			String profileImg, int type) {
+			String profileImgName, String profileImgPath, int type) {
 		super();
 		this.userId = userId;
 		this.password = password;
@@ -23,10 +24,23 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.gender = gender;
 		this.location = location;
-		this.profileImg = profileImg;
+		this.profileImgName = profileImgName;
+		this.profileImgPath = profileImgPath;
 		this.type = type;
 	}
 
+	public User(String userId, String password, String nickname, int phoneNumber, boolean gender, String location,
+			int type) {
+		super();
+		this.userId = userId;
+		this.password = password;
+		this.nickname = nickname;
+		this.phoneNumber = phoneNumber;
+		this.gender = gender;
+		this.location = location;
+		this.type = type;
+	}
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -75,12 +89,20 @@ public class User {
 		this.location = location;
 	}
 
-	public String getProfileImg() {
-		return profileImg;
+	public String getProfileImgName() {
+		return profileImgName;
 	}
 
-	public void setProfileImg(String profileImg) {
-		this.profileImg = profileImg;
+	public void setProfileImgName(String profileImgName) {
+		this.profileImgName = profileImgName;
+	}
+
+	public String getProfileImgPath() {
+		return profileImgPath;
+	}
+
+	public void setProfileImgPath(String profileImgPath) {
+		this.profileImgPath = profileImgPath;
 	}
 
 	public int getType() {
@@ -94,8 +116,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", nickname=" + nickname + ", phoneNumber="
-				+ phoneNumber + ", gender=" + gender + ", location=" + location + ", profileImg=" + profileImg
-				+ ", type=" + type + "]";
+				+ phoneNumber + ", gender=" + gender + ", location=" + location + ", profileImgName=" + profileImgName
+				+ ", profileImgPath=" + profileImgPath + ", type=" + type + "]";
 	}
 	
 
