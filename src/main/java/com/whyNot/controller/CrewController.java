@@ -98,8 +98,8 @@ public class CrewController {
 	}
 	
 	//유형으로 검색
-	@GetMapping("crew/search") //매핑 맞는지?
-	public ResponseEntity<?> searchByCondition(SearchCondition condition){
+	@PostMapping("crew/search") //매핑 맞는지?
+	public ResponseEntity<?> searchByCondition(@RequestBody SearchCondition condition){
 		
 		List<Crew> list = cService.searchByCondition(condition);
 		
