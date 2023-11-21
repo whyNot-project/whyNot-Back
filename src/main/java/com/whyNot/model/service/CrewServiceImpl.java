@@ -51,4 +51,9 @@ public class CrewServiceImpl implements CrewService{
 	public List<Crew> searchByCondition(SearchCondition condition) {
 		return cDao.searchByCondition(condition);
 	}
+
+	@Override
+	public List<Crew> searchByName(String name) {
+		return cDao.searchByName(name);
+	}
 }

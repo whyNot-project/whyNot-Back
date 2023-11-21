@@ -24,15 +24,17 @@ public class CrewController {
 	public ResponseEntity<?> registCrew(@RequestBody Crew crew){
 		
 		System.out.println(crew);
+
 		
 		int check = cService.registCrew(crew);
 		
-		//실패
-		if(check == 0)
+		if(check != 0) {
+			List<Crew> list = cService.searchByName(crew.getCrewName());
+			
+			return new ResponseEntity<List<Crew>>(list, HttpStatus.OK);
+		}else {
 			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
-		
-		//성공
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		}
 		
 	}
 	
@@ -80,8 +82,8 @@ public class CrewController {
 	}
 	
 	//크루 상세
-	@GetMapping("/crew/{crewid}")
-	public ResponseEntity<?> detailCrew(int crewId){
+	@GetMapping("/crew/{crewId}")
+	public ResponseEntity<?> detailCrew(@PathVariable int crewId){
 		
 		Crew crew = cService.detailCrew(crewId);
 		
@@ -95,7 +97,7 @@ public class CrewController {
 		
 	}
 	
-	//검색
+	//유형으로 검색
 	@GetMapping("crew/search") //매핑 맞는지?
 	public ResponseEntity<?> searchByCondition(SearchCondition condition){
 		
@@ -106,6 +108,20 @@ public class CrewController {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		
 		//검색결과 있음, 리스트 반환
+		return new ResponseEntity<List<Crew>>(list, HttpStatus.OK);
+		
+	}
+	
+	//이름으로 검색
+	@GetMapping("crew/searchByName")
+	public ResponseEntity<?> searchByName(String name){
+		
+		List<Crew> list = cService.searchByName(name);
+		
+		if(list == null || list.size() == 0) {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
+		
 		return new ResponseEntity<List<Crew>>(list, HttpStatus.OK);
 		
 	}

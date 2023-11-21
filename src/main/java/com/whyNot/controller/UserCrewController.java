@@ -30,10 +30,25 @@ public class UserCrewController {
 		List<UserCrew> list = ucService.selectMyCrew(userId);
 
 		if (list == null || list.size() == 0)
+
+		
+		if(list == null || list.size() == 0) 
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 
 		return new ResponseEntity<List<UserCrew>>(list, HttpStatus.OK);
 
+	}
+
+	
+	@PostMapping("/userCrew")
+	public ResponseEntity<?> joinCrew(@RequestBody UserCrew uCrew){
+		
+		int check = ucService.joinCrew(uCrew);
+		
+		if(check == 0)
+			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+		
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 }

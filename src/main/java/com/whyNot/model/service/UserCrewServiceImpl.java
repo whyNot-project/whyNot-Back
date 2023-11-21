@@ -19,6 +19,11 @@ public class UserCrewServiceImpl implements UserCrewService {
 		return ucDao.selectMyCrew(userId);
 	}
 	
+	@Override
+	public int joinCrew(UserCrew uCrew) {
+		return ucDao.joinCrew(uCrew);
+	}
+	
 	
 
 }
