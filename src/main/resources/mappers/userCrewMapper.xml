@@ -7,14 +7,9 @@
 	<select id="selectMyCrew" parameterType="String">
 	
 		SELECT *
-		FROM
-		    user_crew uc
-		JOIN
-		    crew c ON uc.crewId = c.crewId
-		JOIN
-		    activity a ON c.tag = a.activityId
-		    
-		WHERE uc.userId = #{userId}
+		FROM user LEFT OUTER JOIN activity
+		ON user.type = activity.activityId
+		WHERE user.userId = #{userId}
 				
 	</select>
 	
