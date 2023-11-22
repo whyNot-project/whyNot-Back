@@ -6,10 +6,16 @@
 	<!-- 내크루 -->
 	<select id="selectMyCrew" parameterType="String">
 	
-		SELECT * FROM user_crew LEFT OUTER JOIN crew
-		ON user_crew.crewId = crew.crewId
-		WHERE user_crew.userId = #{userId}
-		
+		SELECT *
+		FROM
+		    user_crew uc
+		JOIN
+		    crew c ON uc.crewId = c.crewId
+		JOIN
+		    activity a ON c.tag = a.activityId
+		    
+		WHERE uc.userId = #{userId}
+				
 	</select>
 	
 	<!-- 크루 가입 -->

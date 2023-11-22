@@ -11,12 +11,16 @@ public class Crew {
 	private String regDate;
 	private int memberNum;
 	private String leader;
+	private int isInside;
+	private int isSingle;
+	private int isCardio;
+	private int useEquip;
 	
 	public Crew() {
 	}
 
 	public Crew(int crewId, String crewName, String content, String schedule, int tag, String location, String regDate,
-			int memberNum, String leader) {
+			int memberNum, String leader, int isInside, int isSingle, int isCardio, int useEquip) {
 		super();
 		this.crewId = crewId;
 		this.crewName = crewName;
@@ -27,6 +31,10 @@ public class Crew {
 		this.regDate = regDate;
 		this.memberNum = memberNum;
 		this.leader = leader;
+		this.isInside = isInside;
+		this.isSingle = isSingle;
+		this.isCardio = isCardio;
+		this.useEquip = useEquip;
 	}
 
 	public int getCrewId() {
@@ -101,12 +109,45 @@ public class Crew {
 		this.leader = leader;
 	}
 
+	public int getIsInside() {
+		return isInside;
+	}
+
+	public void setIsInside(int isInside) {
+		this.isInside = isInside;
+	}
+
+	public int getIsSingle() {
+		return isSingle;
+	}
+
+	public void setIsSingle(int isSingle) {
+		this.isSingle = isSingle;
+	}
+
+	public int getIsCardio() {
+		return isCardio;
+	}
+
+	public void setIsCardio(int isCardio) {
+		this.isCardio = isCardio;
+	}
+
+	public int getUseEquip() {
+		return useEquip;
+	}
+
+	public void setUseEquip(int useEquip) {
+		this.useEquip = useEquip;
+	}
+
 	@Override
 	public String toString() {
 		return "Crew [crewId=" + crewId + ", crewName=" + crewName + ", content=" + content + ", schedule=" + schedule
 				+ ", tag=" + tag + ", location=" + location + ", regDate=" + regDate + ", memberNum=" + memberNum
-				+ ", leader=" + leader + "]";
+				+ ", leader=" + leader + ", isInside=" + isInside + ", isSingle=" + isSingle + ", isCardio=" + isCardio
+				+ ", useEquip=" + useEquip + "]";
 	}
-	
+
 
 }
