@@ -101,8 +101,6 @@ public class CrewController {
 	@GetMapping("crew/search") //매핑 맞는지?
 	public ResponseEntity<?> searchByCondition(@ModelAttribute SearchCondition condition){
 		
-		System.out.println(condition);
-		
 		List<Crew> list = cService.searchByCondition(condition);
 		
 		//검색결과 없음

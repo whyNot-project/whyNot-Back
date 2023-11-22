@@ -29,14 +29,27 @@ public class UserCrewController {
 
 		List<UserCrew> list = ucService.selectMyCrew(userId);
 
-		if (list == null || list.size() == 0)
-
-		
 		if(list == null || list.size() == 0) 
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 
 		return new ResponseEntity<List<UserCrew>>(list, HttpStatus.OK);
 
+	}
+	
+	@GetMapping("/userCrewList/{userId}")
+	public ResponseEntity<?> getMyCrewList(@PathVariable String userId){
+		
+		List<UserCrew> list = ucService.getMyCrewList(userId);
+		
+		System.out.println(list);
+		
+		if(list == null || list.size() == 0) {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
+		
+		return new ResponseEntity<List<UserCrew>>(list,HttpStatus.OK);
+		
+		
 	}
 
 	
@@ -50,5 +63,6 @@ public class UserCrewController {
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+	
 
 }
