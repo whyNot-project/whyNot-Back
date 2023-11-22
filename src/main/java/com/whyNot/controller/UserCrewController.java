@@ -41,8 +41,6 @@ public class UserCrewController {
 		
 		List<UserCrew> list = ucService.getMyCrewList(userId);
 		
-		System.out.println(list);
-		
 		if(list == null || list.size() == 0) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
