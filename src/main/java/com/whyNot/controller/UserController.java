@@ -66,7 +66,7 @@ public class UserController {
 	}
 	
 	//등록
-	@PostMapping("/user")
+	@PostMapping("/signup")
 	public ResponseEntity<?> registUser(@ModelAttribute User user, MultipartFile imgFile){
 		
 		Integer check = uService.registUser(user, imgFile);

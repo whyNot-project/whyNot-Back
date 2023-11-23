@@ -28,7 +28,10 @@ public class UserCrewServiceImpl implements UserCrewService {
 	public List<UserCrew> getMyCrewList(String userId) {
 		return ucDao.getMyCrewList(userId);
 	}
-	
-	
+
+	@Override
+	public int getCrewJoinMemberNum(String crewId) {
+		return ucDao.getCrewJoinMemberNum(crewId);
+	}
 
 }
