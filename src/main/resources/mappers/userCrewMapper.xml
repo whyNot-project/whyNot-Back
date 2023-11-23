@@ -24,8 +24,13 @@
 	
 	<!-- 크루 가입 -->
 	<insert id="joinCrew" parameterType="UserCrew">
-		INSERT INTO user_crew
-		VALUES (#{userId}, #{crewId} )
+	    INSERT INTO user_crew (userId, crewId)
+	    SELECT #{userId}, #{crewId}
+	    WHERE NOT EXISTS (
+	        SELECT userId
+	        FROM user_crew
+	        WHERE userId = #{userId} AND crewId = #{crewId}
+	    )
 	</insert>
 
 	<!-- 가입된 인원 확인 -->

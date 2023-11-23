@@ -22,10 +22,7 @@ public class CrewController {
 	//등록
 	@PostMapping("/crew")
 	public ResponseEntity<?> registCrew(@RequestBody Crew crew){
-		
-		System.out.println(crew);
 
-		
 		int check = cService.registCrew(crew);
 		
 		if(check != 0) {
