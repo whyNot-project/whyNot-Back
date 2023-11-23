@@ -23,6 +23,9 @@ public class CrewController {
 	@PostMapping("/crew")
 	public ResponseEntity<?> registCrew(@RequestBody Crew crew){
 		
+		System.out.println(crew);
+
+		
 		int check = cService.registCrew(crew);
 		
 		if(check != 0) {
@@ -96,7 +99,7 @@ public class CrewController {
 	
 	//유형으로 검색
 	@GetMapping("crew/search") //매핑 맞는지?
-	public ResponseEntity<?> searchByCondition(SearchCondition condition){
+	public ResponseEntity<?> searchByCondition(@ModelAttribute SearchCondition condition){
 		
 		List<Crew> list = cService.searchByCondition(condition);
 		

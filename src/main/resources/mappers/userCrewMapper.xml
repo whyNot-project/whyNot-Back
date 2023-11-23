@@ -2,13 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.whyNot.model.dao.UserCrewDao">
-
+	
+	<!-- 내유형찾기 -->
 	<select id="selectMyCrew" parameterType="String">
+	
+		SELECT *
+		FROM user LEFT OUTER JOIN activity
+		ON user.type = activity.activityId
+		WHERE user.userId = #{userId}
+				
+	</select>
+	
+	<!-- 내크루목록 -->
+	<select id="getMyCrewList" parameterType="String">
 	
 		SELECT * FROM user_crew LEFT OUTER JOIN crew
 		ON user_crew.crewId = crew.crewId
-		WHERE user_crew.userId = #{userId}
-		
+		WHERE userId = #{userId}
+	
 	</select>
 	
 	<!-- 크루 가입 -->

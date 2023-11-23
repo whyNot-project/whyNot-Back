@@ -23,18 +23,33 @@ public class UserCrewController {
 
 	@Autowired
 	private UserCrewService ucService;
-	
+
 	@GetMapping("/userCrew/{userId}")
-	public ResponseEntity<?> selectMyCrew(@PathVariable String userId){
-		
+	public ResponseEntity<?> selectMyCrew(@PathVariable String userId) {
+
 		List<UserCrew> list = ucService.selectMyCrew(userId);
-		
+
 		if(list == null || list.size() == 0) 
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 
 		return new ResponseEntity<List<UserCrew>>(list, HttpStatus.OK);
+
+	}
+	
+	@GetMapping("/userCrewList/{userId}")
+	public ResponseEntity<?> getMyCrewList(@PathVariable String userId){
+		
+		List<UserCrew> list = ucService.getMyCrewList(userId);
+		
+		if(list == null || list.size() == 0) {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
+		
+		return new ResponseEntity<List<UserCrew>>(list,HttpStatus.OK);
+		
 		
 	}
+
 	
 	@PostMapping("/userCrew")
 	public ResponseEntity<?> joinCrew(@RequestBody UserCrew uCrew){
@@ -46,4 +61,6 @@ public class UserCrewController {
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+	
+
 }

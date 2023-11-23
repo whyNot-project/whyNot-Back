@@ -22,7 +22,7 @@ public class ArticleController {
 	private ArticleService aService;
 	
 	//전체목록
-	@GetMapping("article")
+	@GetMapping("/article")
 	public ResponseEntity<?> selectArticleAll(){
 		
 		List<Article> list = aService.selectArticleAll();

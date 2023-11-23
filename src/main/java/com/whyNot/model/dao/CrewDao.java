@@ -28,5 +28,6 @@ public interface CrewDao {
 
 	//크루 이름으로 검색
 	List<Crew> searchByName(String name);
+
 	
 }
