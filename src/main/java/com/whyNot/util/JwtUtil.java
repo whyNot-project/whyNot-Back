@@ -33,7 +33,7 @@ public class JwtUtil {
 	}
 	
 	//토큰 유효성 검사 메서드
-	public void valud(String token) {
+	public void valid(String token) {
 		try {
 			Jwts.parser().setSigningKey(SALT.getBytes("UTF-8")).parseClaimsJws(token);
 		} catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException
