@@ -2,6 +2,7 @@ package com.whyNot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -28,5 +29,10 @@ public class SwaggerConfig {
 				.description("개인 성향을 기반으로 한 액티비티 추천 및 크루 모집 서비스 WhyNot의 API")
 				.version("0.1")
 				.build();
+	}
+	
+	@Bean
+	public InternalResourceViewResolver defaultViewResolver() {
+	    return new InternalResourceViewResolver();
 	}
 }

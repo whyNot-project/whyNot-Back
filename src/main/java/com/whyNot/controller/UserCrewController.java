@@ -62,5 +62,14 @@ public class UserCrewController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
+	@GetMapping("/userCrew/joinNum/{crewId}")
+	public ResponseEntity<?> getCrewJoinMemberNum(@PathVariable String crewId) {
+
+		int number = ucService.getCrewJoinMemberNum(crewId);
+
+		return new ResponseEntity<Integer>(number, HttpStatus.OK);
+
+	}
+	
 
 }

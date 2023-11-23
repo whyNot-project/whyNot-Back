@@ -27,5 +27,12 @@
 		INSERT INTO user_crew
 		VALUES (#{userId}, #{crewId} )
 	</insert>
+
+	<!-- 가입된 인원 확인 -->
+	<select id="getCrewJoinMemberNum" parameterType="String">
+		SELECT COUNT(*)
+		FROM user_crew
+		WHERE crewId = #{crewId}		
+	</select>
 	
 </mapper>

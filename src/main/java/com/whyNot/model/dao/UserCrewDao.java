@@ -14,4 +14,6 @@ public interface UserCrewDao {
 	
 	//내 크루 목록
 	List<UserCrew> getMyCrewList(String userId);
+	
+	int getCrewJoinMemberNum(String crewId);
 }
